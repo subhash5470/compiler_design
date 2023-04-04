@@ -1,0 +1,41 @@
+/* Implement lexical analyzer using LEX for recognizing the following tokens: 
+
+• A minimum of 10 keywords of your choice 
+
+• Identifiers with the regular expression: letter(letter | digit)* 
+
+• Integers with the regular expression: digit+ 
+
+• Relational operators: &lt;, &gt;, &lt;=, &gt;=, ==, != 
+
+• Ignores everything between multi line comments */ 
+
+%option noyywrap 
+
+%{ 
+
+#include<stdio.h> 
+
+%} 
+
+%% 
+
+bool|int|float printf("Keyword"); 
+
+[-,+]?[0-9]+ printf("digit"); 
+
+[a-zA-Z]+ printf("Identifiers"); 
+
+[>,<,=,>=,<=,==,!=]+ printf("Relational operators"); 
+
+%% 
+
+int main() 
+
+{ 
+
+printf("\nEnter the string : "); 
+
+yylex(); 
+
+} 
